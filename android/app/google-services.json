@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "1004809454363",
+    "project_id": "gymbro-f478f",
+    "storage_bucket": "gymbro-f478f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004809454363:android:ec54fbfeaab39c8140c9be",
+        "android_client_info": {
+          "package_name": "com.example.gymbro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004809454363-s73lhs78dnmdeaorer6lld7pf41grcek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gymbro",
+            "certificate_hash": "586356a12ee3fee02a65dc73c968eee2f41ae76f"
+          }
+        },
+        {
+          "client_id": "1004809454363-ennf4kacqacn2r35dkui2ku8dhg6g73f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkoYvfBgiNe8c8XXNiZ8ZsXQEBsM4IwSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004809454363-ennf4kacqacn2r35dkui2ku8dhg6g73f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1004809454363-396ohqhmik1qmoqg4rq89f5k6iv7lef7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gymbro"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004809454363:android:a5edd78b16fd56ca40c9be",
+        "android_client_info": {
+          "package_name": "com.example.gymbro_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004809454363-ennf4kacqacn2r35dkui2ku8dhg6g73f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkoYvfBgiNe8c8XXNiZ8ZsXQEBsM4IwSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004809454363-ennf4kacqacn2r35dkui2ku8dhg6g73f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1004809454363-396ohqhmik1qmoqg4rq89f5k6iv7lef7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gymbro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
