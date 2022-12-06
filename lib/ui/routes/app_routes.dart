@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymbro_web/ui/routes/routes_string.dart';
-import 'package:gymbro_web/ui/splashscreen.dart';
 
+import '../pages/splashscreen.dart';
 import '../skeleton/base_page_navigator.dart';
 import '../skeleton/responsive_wrapper.dart';
 import '../skeleton/screen_size.dart';

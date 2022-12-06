@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gymbro_web/provider/auth_provider.dart';
 import 'package:gymbro_web/states/auth_state.dart';
+import 'package:gymbro_web/ui/pages/splashscreen.dart';
 import 'package:gymbro_web/ui/skeleton/base_page_navigator.dart';
 import 'package:gymbro_web/ui/skeleton/responsive_wrapper.dart';
 import 'package:gymbro_web/ui/skeleton/screen_size.dart';
-import 'package:gymbro_web/ui/splashscreen.dart';
 import 'package:gymbro_web/ui/widgets/password_field.dart';
 import 'package:string_validator/string_validator.dart';
 
-import '../services/firebase_authenticate.dart';
+import '../../services/firebase_authenticate.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});

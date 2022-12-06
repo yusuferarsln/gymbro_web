@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gymbro_web/extensions/context_extension.dart';
-import 'package:gymbro_web/ui/loginpage.dart';
+import 'package:gymbro_web/ui/pages/loginpage.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

@@ -3,13 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gymbro_web/extensions/context_extension.dart';
-import 'package:gymbro_web/ui/homepage.dart';
+import 'package:gymbro_web/provider/firebase_provider.dart';
+import 'package:gymbro_web/states/auth_state.dart';
+import 'package:gymbro_web/ui/pages/homepage.dart';
 import 'package:gymbro_web/ui/skeleton/base_page_navigator.dart';
 import 'package:gymbro_web/ui/skeleton/responsive_wrapper.dart';
 import 'package:gymbro_web/ui/skeleton/screen_size.dart';
-
-import '../provider/firebase_provider.dart';
-import '../states/auth_state.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

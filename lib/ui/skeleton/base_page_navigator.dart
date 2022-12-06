@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:gymbro_web/constants/appcolors.dart';
 import 'package:gymbro_web/extensions/context_extension.dart';
 import 'package:gymbro_web/services/firebase_authenticate.dart';
-import 'package:gymbro_web/ui/gymbro_dashboard.dart';
-import 'package:gymbro_web/ui/homepage.dart';
 import 'package:gymbro_web/ui/skeleton/custom_app_bar_widget.dart';
 import 'package:gymbro_web/ui/skeleton/custom_side_bar_widget.dart';
 import 'package:gymbro_web/ui/skeleton/screen_size.dart';
 import 'package:gymbro_web/ui/skeleton/sidebar_page.dart';
+
+import '../pages/gymbro_dashboard.dart';
+import '../pages/homepage.dart';
 
 class BasePageNavigator extends StatefulWidget {
   const BasePageNavigator({
