@@ -1,4 +1,4 @@
 abstract class RouteStrings {
-  static const String splash = '/';
+  static const String homePage = '/';
   static const String adminDashboard = '/dashboard';
 }

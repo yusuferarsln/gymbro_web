@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gymbro_web/constants/appcolors.dart';
+import 'package:gymbro_web/enums/accoun_type.dart';
 import 'package:gymbro_web/extensions/context_extension.dart';
 import 'package:gymbro_web/services/firebase_authenticate.dart';
+import 'package:gymbro_web/ui/pages/dashboard.dart';
 import 'package:gymbro_web/ui/skeleton/custom_app_bar_widget.dart';
 import 'package:gymbro_web/ui/skeleton/custom_side_bar_widget.dart';
 import 'package:gymbro_web/ui/skeleton/screen_size.dart';
@@ -15,8 +17,10 @@ class BasePageNavigator extends StatefulWidget {
   const BasePageNavigator({
     super.key,
     required this.size,
+    this.adminType,
   });
   final ScreenSize size;
+  final AccountType? adminType;
 
   @override
   State<BasePageNavigator> createState() => _BasePageNavigatorState();
@@ -70,6 +74,7 @@ class _BasePageNavigatorState extends State<BasePageNavigator> {
                 onSelected: (value) {
                   _pageController.jumpToPage(value);
                 },
+                pageX: widget.adminType,
               ),
             )
           : null,
@@ -89,6 +94,7 @@ class _BasePageNavigatorState extends State<BasePageNavigator> {
                     onSelected: (value) {
                       _pageController.jumpToPage(value);
                     },
+                    pageX: widget.adminType,
                   ),
                 if (widget.size == ScreenSize.medium)
                   CustomSideBarWidget(
@@ -96,33 +102,57 @@ class _BasePageNavigatorState extends State<BasePageNavigator> {
                     onSelected: (value) {
                       _pageController.jumpToPage(value);
                     },
+                    pageX: widget.adminType,
                   ),
               ],
             ),
 
           //* Pages
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: SidebarPage.values.length,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                const pages = SidebarPage.values;
-                return Navigator(
-                  onGenerateRoute: (settings) {
-                    return MaterialPageRoute(
-                      builder: (context) {
-                        switch (pages[index]) {
-                          case SidebarPage.dashboard:
-                            return const GymBroDashboard();
-                        }
-                      },
-                    );
-                  },
-                );
-              },
-            ),
-          ),
+          widget.adminType == AccountType.broAdmin
+              ? Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: SidebarRootPage.values.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      const pages = SidebarRootPage.values;
+                      return Navigator(
+                        onGenerateRoute: (settings) {
+                          return MaterialPageRoute(
+                            builder: (context) {
+                              switch (pages[index]) {
+                                case SidebarRootPage.adminpanel:
+                                  return const GymBroDashboard();
+                              }
+                            },
+                          );
+                        },
+                      );
+                    },
+                  ),
+                )
+              : Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: SidebarPage.values.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      const pages = SidebarPage.values;
+                      return Navigator(
+                        onGenerateRoute: (settings) {
+                          return MaterialPageRoute(
+                            builder: (context) {
+                              switch (pages[index]) {
+                                case SidebarPage.dashboard:
+                                  return const DashboardPage();
+                              }
+                            },
+                          );
+                        },
+                      );
+                    },
+                  ),
+                )
         ],
       ),
     );

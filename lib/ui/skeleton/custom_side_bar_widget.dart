@@ -1,29 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gymbro_web/enums/accoun_type.dart';
 import 'package:gymbro_web/ui/skeleton/screen_size.dart';
 import 'package:gymbro_web/ui/skeleton/sidebar_page.dart';
 
 import '../../constants/appcolors.dart';
 
-class CustomSideBarWidget extends StatefulWidget {
+class CustomSideBarWidget extends ConsumerStatefulWidget {
   const CustomSideBarWidget({
     super.key,
     required this.size,
     required this.onSelected,
+    this.pageX,
   });
 
   final ScreenSize size;
   final ValueChanged<int> onSelected;
+  final AccountType? pageX;
 
   @override
-  State<CustomSideBarWidget> createState() => _CustomSideBarWidgetState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _CustomSideBarWidgetState();
 }
 
-class _CustomSideBarWidgetState extends State<CustomSideBarWidget> {
+class _CustomSideBarWidgetState extends ConsumerState<CustomSideBarWidget> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    const pages = SidebarPage.values;
+    List pages = [];
+    if (widget.pageX == AccountType.broAdmin) {
+      pages = SidebarRootPage.values;
+    } else {
+      pages = SidebarPage.values;
+    }
+
     if (widget.size == ScreenSize.small) {
       return Container(
         width: widget.size == ScreenSize.large ? 250 : 65,

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:gymbro_web/ui/pages/homepage.dart';
 import 'package:gymbro_web/ui/routes/routes_string.dart';
 
-import '../pages/splashscreen.dart';
 import '../skeleton/base_page_navigator.dart';
 import '../skeleton/responsive_wrapper.dart';
 import '../skeleton/screen_size.dart';
 
 abstract class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
-    RouteStrings.splash: (context) {
-      return const SplashScreen();
+    RouteStrings.homePage: (context) {
+      return const HomePage();
     },
     RouteStrings.adminDashboard: (context) {
       if (ResponsiveWrapper.isSmall(context)) {

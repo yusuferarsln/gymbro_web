@@ -16,9 +16,22 @@ class _FirebaseNotifier extends StateNotifier<AuthState> {
       state = Checking();
       final result = await auth.authCheck();
 
-      state = Checked(result);
+      state = Checked<bool>(result);
     } catch (e) {
       state = CheckError(e);
+      rethrow;
+    }
+  }
+
+  void login(String email, String password) async {
+    try {
+      state = Checking();
+      final result = await auth.authLogin(email, password);
+
+      state = Checked<bool>(result);
+    } catch (e) {
+      state = CheckError(e);
+      rethrow;
     }
   }
 }

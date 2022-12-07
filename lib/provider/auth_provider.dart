@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gymbro_web/enums/accoun_type.dart';
 import 'package:gymbro_web/states/auth_state.dart';
 
 import '../services/api_service.dart';
@@ -14,7 +15,7 @@ class _AuthNotifier extends StateNotifier<AuthState> {
     try {
       state = Checking();
       final result = await api.checkAdmin(email);
-      state = Checked<bool>(result);
+      state = Checked<AccountType>(result);
     } catch (e) {
       state = CheckError(e);
       rethrow;

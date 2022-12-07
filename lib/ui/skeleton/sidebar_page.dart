@@ -17,3 +17,21 @@ enum SidebarPage {
     }
   }
 }
+
+enum SidebarRootPage {
+  adminpanel;
+
+  String get title {
+    switch (this) {
+      case adminpanel:
+        return 'Admin Panel';
+    }
+  }
+
+  IconData get icon {
+    switch (this) {
+      case adminpanel:
+        return Icons.admin_panel_settings;
+    }
+  }
+}

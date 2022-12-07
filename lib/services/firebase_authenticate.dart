@@ -7,10 +7,12 @@ class FirebaseAuthentication {
   static final FirebaseAuthentication instance = FirebaseAuthentication._();
   adminControl(String email) async {}
 
-  authLogin(String email, String password) async {
+  Future<bool> authLogin(String email, String password) async {
     try {
+      print('sa');
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      print('as');
       return true;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -18,7 +20,11 @@ class FirebaseAuthentication {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
+      rethrow;
+    } catch (e) {
+      print(e);
     }
+    return false;
   }
 
   authSignOut() async {
@@ -36,12 +42,13 @@ class FirebaseAuthentication {
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
       }
+      rethrow;
     } catch (e) {
       print(e);
     }
   }
 
-  authCheck<bool>() async {
+  Future<bool> authCheck() async {
     var currentUserX = FirebaseAuth.instance.currentUser;
 
     if (currentUserX == null) {
