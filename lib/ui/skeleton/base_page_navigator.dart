@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gymbro_web/constants/appcolors.dart';
 import 'package:gymbro_web/enums/accoun_type.dart';
 import 'package:gymbro_web/extensions/context_extension.dart';
 import 'package:gymbro_web/services/firebase_authenticate.dart';
-import 'package:gymbro_web/ui/pages/dashboard.dart';
+import 'package:gymbro_web/ui/pages/main_dashboard_page.dart';
+import 'package:gymbro_web/ui/pages/request_page.dart';
 import 'package:gymbro_web/ui/skeleton/custom_app_bar_widget.dart';
 import 'package:gymbro_web/ui/skeleton/custom_side_bar_widget.dart';
 import 'package:gymbro_web/ui/skeleton/screen_size.dart';
@@ -66,46 +66,33 @@ class _BasePageNavigatorState extends State<BasePageNavigator> {
         ],
         size: widget.size,
       ),
-      drawer: widget.size == ScreenSize.small
-          ? Drawer(
-              backgroundColor: AppColors.oliveBlack,
-              child: CustomSideBarWidget(
-                size: ScreenSize.small,
-                onSelected: (value) {
-                  _pageController.jumpToPage(value);
-                },
-                pageX: widget.adminType,
-              ),
-            )
-          : null,
       body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           //* SideBar Widget
-          if (widget.size != ScreenSize.small)
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                if (widget.size == ScreenSize.large)
-                  CustomSideBarWidget(
-                    size: ScreenSize.large,
-                    onSelected: (value) {
-                      _pageController.jumpToPage(value);
-                    },
-                    pageX: widget.adminType,
-                  ),
-                if (widget.size == ScreenSize.medium)
-                  CustomSideBarWidget(
-                    size: ScreenSize.medium,
-                    onSelected: (value) {
-                      _pageController.jumpToPage(value);
-                    },
-                    pageX: widget.adminType,
-                  ),
-              ],
-            ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              if (widget.size == ScreenSize.large)
+                CustomSideBarWidget(
+                  size: ScreenSize.large,
+                  onSelected: (value) {
+                    _pageController.jumpToPage(value);
+                  },
+                  pageX: widget.adminType,
+                ),
+              if (widget.size == ScreenSize.medium)
+                CustomSideBarWidget(
+                  size: ScreenSize.medium,
+                  onSelected: (value) {
+                    _pageController.jumpToPage(value);
+                  },
+                  pageX: widget.adminType,
+                ),
+            ],
+          ),
 
           //* Pages
           widget.adminType == AccountType.broAdmin
@@ -143,8 +130,10 @@ class _BasePageNavigatorState extends State<BasePageNavigator> {
                           return MaterialPageRoute(
                             builder: (context) {
                               switch (pages[index]) {
-                                case SidebarPage.dashboard:
-                                  return const DashboardPage();
+                                case SidebarPage.request:
+                                  return const RequestPage();
+                                case SidebarPage.maindashboard:
+                                  return const MainDashboardPage();
                               }
                             },
                           );

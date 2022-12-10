@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 
 enum SidebarPage {
-  dashboard;
+  request,
+  maindashboard;
 
   String get title {
     switch (this) {
-      case dashboard:
-        return 'Dashboard';
+      case request:
+        return 'Request';
+      case maindashboard:
+        return 'Main Dashboard';
     }
   }
 
   IconData get icon {
     switch (this) {
-      case dashboard:
-        return Icons.dashboard_rounded;
+      case request:
+        return Icons.people;
+      case maindashboard:
+        return Icons.dashboard;
     }
   }
 }

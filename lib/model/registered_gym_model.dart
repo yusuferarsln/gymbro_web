@@ -5,9 +5,7 @@ class RecordedGymsModel {
   final String gymImage;
   final int gymMemberCount;
   final String gymName;
-  final String gymPassword;
   final int gymToolCount;
-  final String gymUser;
   final int id;
   final List<User>? users;
   RecordedGymsModel({
@@ -15,9 +13,7 @@ class RecordedGymsModel {
     required this.gymImage,
     required this.gymMemberCount,
     required this.gymName,
-    required this.gymPassword,
     required this.gymToolCount,
-    required this.gymUser,
     required this.id,
     this.users,
   });
@@ -27,9 +23,7 @@ class RecordedGymsModel {
     String? gymImage,
     int? gymMemberCount,
     String? gymName,
-    String? gymPassword,
     int? gymToolCount,
-    String? gymUser,
     int? id,
     List<User>? users,
   }) {
@@ -38,9 +32,7 @@ class RecordedGymsModel {
       gymImage: gymImage ?? this.gymImage,
       gymMemberCount: gymMemberCount ?? this.gymMemberCount,
       gymName: gymName ?? this.gymName,
-      gymPassword: gymPassword ?? this.gymPassword,
       gymToolCount: gymToolCount ?? this.gymToolCount,
-      gymUser: gymUser ?? this.gymUser,
       id: id ?? this.id,
       users: users ?? this.users,
     );
@@ -52,9 +44,7 @@ class RecordedGymsModel {
       gymImage: map['gym_image'] as String,
       gymMemberCount: map['gym_member_count'] as int,
       gymName: map['gym_name'] as String,
-      gymPassword: map['gym_password'] as String,
       gymToolCount: map['gym_tool_count'] as int,
-      gymUser: map['gym_user'] as String,
       id: map['id'] as int,
       users: map['users'] != null
           ? List<User>.from(

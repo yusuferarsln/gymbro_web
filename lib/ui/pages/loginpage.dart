@@ -48,17 +48,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         final result = next.value;
         print(next.value);
         print(result);
-
         if (result == AccountType.broAdmin) {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              if (ResponsiveWrapper.isSmall(context)) {
-                return const BasePageNavigator(
-                  size: ScreenSize.small,
-                  adminType: AccountType.broAdmin,
-                );
-              } else if (ResponsiveWrapper.isMedium(context)) {
+              if (ResponsiveWrapper.isMedium(context)) {
                 return const BasePageNavigator(
                     size: ScreenSize.medium, adminType: AccountType.broAdmin);
               } else {
@@ -71,12 +65,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              if (ResponsiveWrapper.isSmall(context)) {
-                return const BasePageNavigator(
-                  size: ScreenSize.small,
-                  adminType: AccountType.broAdmin,
-                );
-              } else if (ResponsiveWrapper.isMedium(context)) {
+              if (ResponsiveWrapper.isMedium(context)) {
                 return const BasePageNavigator(
                     size: ScreenSize.medium, adminType: AccountType.gymAdmin);
               } else {

@@ -31,18 +31,12 @@ final gymAddProvider = StateNotifierProvider<_GymAddNotifier, FetchState>(
 
 class _GymAddNotifier extends StateNotifier<FetchState> {
   _GymAddNotifier() : super(Fetching());
-  void fetch(
-      String gymAdress,
-      String gymImage,
-      int gymMemberCount,
-      String gymName,
-      String gymUser,
-      String gymPassword,
-      int gymToolCount) async {
+  void fetch(String gymAdress, String gymImage, int gymMemberCount,
+      String gymName, int gymToolCount) async {
     try {
       state = Fetching();
-      final result = await api.addGym(gymAdress, gymImage, gymMemberCount,
-          gymName, gymUser, gymPassword, gymToolCount);
+      final result = await api.addGym(
+          gymAdress, gymImage, gymMemberCount, gymName, gymToolCount);
       state = Fetched<bool>(result);
     } catch (e) {
       state = FetchError(e);

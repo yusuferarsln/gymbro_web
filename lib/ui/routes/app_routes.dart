@@ -12,13 +12,25 @@ abstract class AppRoutes {
       return const HomePage();
     },
     RouteStrings.adminDashboard: (context) {
-      if (ResponsiveWrapper.isSmall(context)) {
-        return const BasePageNavigator(size: ScreenSize.small);
-      } else if (ResponsiveWrapper.isMedium(context)) {
+      if (ResponsiveWrapper.isMedium(context)) {
         return const BasePageNavigator(size: ScreenSize.medium);
       } else {
         return const BasePageNavigator(size: ScreenSize.large);
       }
     },
+    RouteStrings.requestPage: (context) {
+      if (ResponsiveWrapper.isMedium(context)) {
+        return const BasePageNavigator(size: ScreenSize.medium);
+      } else {
+        return const BasePageNavigator(size: ScreenSize.large);
+      }
+    },
+    RouteStrings.mainDashboard: (context) {
+      if (ResponsiveWrapper.isMedium(context)) {
+        return const BasePageNavigator(size: ScreenSize.medium);
+      } else {
+        return const BasePageNavigator(size: ScreenSize.large);
+      }
+    }
   };
 }

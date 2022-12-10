@@ -35,11 +35,12 @@ class _CustomSideBarWidgetState extends ConsumerState<CustomSideBarWidget> {
       pages = SidebarPage.values;
     }
 
-    if (widget.size == ScreenSize.small) {
-      return Container(
+    return Expanded(
+      child: Container(
         width: widget.size == ScreenSize.large ? 250 : 65,
         color: AppColors.oliveBlack,
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
             for (int i = 0; i < pages.length; i++)
               ListTile(
@@ -48,15 +49,15 @@ class _CustomSideBarWidgetState extends ConsumerState<CustomSideBarWidget> {
                   setState(() => _selectedIndex = i);
                   widget.onSelected(i);
                 },
-                title: widget.size != ScreenSize.medium
+                title: widget.size == ScreenSize.large
                     ? Text(pages[i].title)
                     : const Text(''),
-                leading: widget.size != ScreenSize.medium
+                leading: widget.size == ScreenSize.large
                     ? Icon(pages[i].icon)
                     : Icon(
                         pages[i].icon,
                       ),
-                trailing: widget.size != ScreenSize.medium
+                trailing: widget.size == ScreenSize.large
                     ? const Icon(
                         Icons.chevron_right_rounded,
                       )
@@ -64,40 +65,7 @@ class _CustomSideBarWidgetState extends ConsumerState<CustomSideBarWidget> {
               ),
           ],
         ),
-      );
-    } else {
-      return Expanded(
-        child: Container(
-          width: widget.size == ScreenSize.large ? 250 : 65,
-          color: AppColors.oliveBlack,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              for (int i = 0; i < pages.length; i++)
-                ListTile(
-                  selected: i == _selectedIndex,
-                  onTap: () {
-                    setState(() => _selectedIndex = i);
-                    widget.onSelected(i);
-                  },
-                  title: widget.size == ScreenSize.large
-                      ? Text(pages[i].title)
-                      : const Text(''),
-                  leading: widget.size == ScreenSize.large
-                      ? Icon(pages[i].icon)
-                      : Icon(
-                          pages[i].icon,
-                        ),
-                  trailing: widget.size == ScreenSize.large
-                      ? const Icon(
-                          Icons.chevron_right_rounded,
-                        )
-                      : null,
-                ),
-            ],
-          ),
-        ),
-      );
-    }
+      ),
+    );
   }
 }

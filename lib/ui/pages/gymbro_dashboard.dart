@@ -58,6 +58,8 @@ class _GymBroDashboardState extends ConsumerState<GymBroDashboard> {
                 child: IconButton(
                     onPressed: () {
                       _showMyDialog(context);
+                      ref.read(gymProvider.notifier).fetch();
+                      setState(() {});
                     },
                     icon: const Icon(Icons.add)),
               ),
@@ -117,6 +119,9 @@ class _GymBroDashboardState extends ConsumerState<GymBroDashboard> {
                                       onPressed: () {
                                         _deleteDiaalog(
                                             context, value[index].id);
+
+                                        ref.read(gymProvider.notifier).fetch();
+                                        setState(() {});
                                       },
                                       child: const Text('Delete Gym')),
                                   const SizedBox(
@@ -155,8 +160,6 @@ class _GymBroDashboardState extends ConsumerState<GymBroDashboard> {
     TextEditingController addresscontroller = TextEditingController();
     TextEditingController imagecontroller = TextEditingController();
     TextEditingController membercontroller = TextEditingController();
-    TextEditingController usercontroller = TextEditingController();
-    TextEditingController passwordcontroller = TextEditingController();
     TextEditingController toolcontroller = TextEditingController();
 
     return showDialog<void>(
@@ -224,28 +227,6 @@ class _GymBroDashboardState extends ConsumerState<GymBroDashboard> {
                           border: OutlineInputBorder(), counterText: ''),
                     ),
                   ),
-                  const Text('Gym User'),
-                  Container(
-                    width: 500,
-                    height: 40,
-                    color: Colors.white,
-                    child: TextField(
-                      controller: usercontroller,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(), counterText: ''),
-                    ),
-                  ),
-                  const Text('Gym Password'),
-                  Container(
-                    width: 500,
-                    height: 40,
-                    color: Colors.white,
-                    child: TextField(
-                      controller: passwordcontroller,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(), counterText: ''),
-                    ),
-                  ),
                   const Text('Gym Tool Count'),
                   Container(
                     width: 100,
@@ -270,8 +251,6 @@ class _GymBroDashboardState extends ConsumerState<GymBroDashboard> {
                     imagecontroller.text,
                     int.parse(membercontroller.text),
                     namecontroller.text,
-                    usercontroller.text,
-                    passwordcontroller.text,
                     int.parse(toolcontroller.text));
                 ref.read(gymProvider.notifier).fetch();
                 Navigator.of(context).pop();

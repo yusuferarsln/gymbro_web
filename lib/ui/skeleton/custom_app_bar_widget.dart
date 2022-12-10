@@ -23,8 +23,6 @@ class CustomAppBarWidget extends StatelessWidget with PreferredSizeWidget {
 
   Widget? get getTitle {
     switch (size) {
-      case ScreenSize.small:
-        return Text(title);
       case ScreenSize.medium:
       case ScreenSize.large:
         return IntrinsicHeight(
